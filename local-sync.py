@@ -5,10 +5,7 @@ import json
 import urllib2
 import os
 from subprocess import call
-
-LOCAL_FOLDER = '/srv/git/'
-GITHUB_USERNAME = 'paalka'
-GITHUB_API_URL = "https://api.github.com/"
+from config import GITHUB_USERNAME, GITHUB_API_URL, LOCAL_FOLDER
 
 def update_repo(path_to_repo, description):
     orig_directory = os.getcwd()
