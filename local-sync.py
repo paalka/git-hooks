@@ -14,7 +14,7 @@ def update_repo(path_to_repo, description):
     orig_directory = os.getcwd()
     os.chdir(path_to_repo)
 
-    call(["git", "fetch", "--force"])
+    call(["git", "fetch", "--force", "-q"])
     call(['git', 'config', '--local', '--replace-all', 'gitweb.description', description])
 
     os.chdir(orig_directory)
