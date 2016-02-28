@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+USERNAME="git@"
+REMOTE_URL+=$(git remote -v | grep 'fetch' | grep -Po '(?<=http://|https://)([^ "]+)')
+
+# Replace the first occurence of a '/' with ':'
+REMOTE_URL=$(echo "$REMOTE_URL" | sed '1,/RE/s/\//:/')
+FULL_SSH_URL=$USERNAME$REMOTE_URL
+echo "Setting remote origin to: $FULL_SSH_URL"
+git remote set-url origin $FULL_SSH_URL
